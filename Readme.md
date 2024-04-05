@@ -1,200 +1,57 @@
-# Libre Netbird Android Client
+<br/>
+<div align="center">
+<p align="center">
+  <img width="234" src="https://raw.githubusercontent.com/netbirdio/netbird/main/docs/media/logo-full.png"/>
+</p>
+  <p>
+     <a href="https://github.com/netbirdio/netbird/blob/main/LICENSE">
+       <img height="20" src="https://www.gnu.org/graphics/gplv3-88x31.png" />
+     </a>
+    <a href="https://join.slack.com/t/netbirdio/shared_invite/zt-vrahf41g-ik1v7fV8du6t0RwxSrJ96A">
+        <img src="https://img.shields.io/badge/slack-@netbird-red.svg?logo=slack"/>
+     </a>    
+  </p>
+</div>
 
-This is a fork of the official Netbird Android client, with proprietary components removed (Crashlytics, GMS, etc.).
 
-`react-native-device-info` has been replaced with a custom implementation of required functions, as the library was pulling in the play installer referrer library as well as Firebase/GMS.
+<p align="center">
+<strong>
+  Start using NetBird at <a href="https://netbird.io/pricing">netbird.io</a>
+  <br/>
+  See <a href="https://netbird.io/docs/">Documentation</a>
+  <br/>
+   Join our <a href="https://join.slack.com/t/netbirdio/shared_invite/zt-vrahf41g-ik1v7fV8du6t0RwxSrJ96A">Slack channel</a>
+  <br/>
 
-Two permissions were also removed:
-- `com.google.android.gms.permission.AD_ID`
-- `BIND_GET_INSTALL_REFERRER_SERVICE` (through removal of device info lib)
+</strong>
+</p>
 
-APK scan before and after:
+<br>
 
-<details>
-    <summary>Before</summary>
+# NetBird Android client
 
-    No libsmali.jsonl entry for /com/shaded/fasterxml/jackson, this library will be ignored.
-    
-    Libraries detected:
-    -------------------
-    * Android Support v4 (/android/support/v4): Development Framework, Apache-2.0
-    * AndroidX Activity (/androidx/activity): Utility, Apache-2.0
-    * Android Jetpack Annotations (/androidx/annotation): Utility, Apache-2.0
-    * Arch (/androidx/arch): Utility, Apache-2.0
-    * AppCompat (/androidx/appcompat): Utility, Apache-2.0
-    * Autofill (/androidx/autofill): Utility, Apache-2.0
-    * Browser (/androidx/browser): Utility, Apache-2.0
-    * Cardview (/androidx/cardview): UI Component, Apache-2.0
-    * Android Support Library collections (/androidx/collection): Utility, Apache-2.0
-    * Concurrent (/androidx/concurrent): Utility, Apache-2.0
-    * Coordinatorlayout (/androidx/coordinatorlayout): UI Component, Apache-2.0
-    * Androidx Core (/androidx/core): Utility, Apache-2.0
-    * AndroidX Cursor Adapter (/androidx/cursoradapter): Utility, Apache-2.0
-    * Android Support Library Custom View (/androidx/customview): UI Component, Apache-2.0
-    * Documentfile (/androidx/documentfile): UI Component, Apache-2.0
-    * Drawerlayout (/androidx/drawerlayout): UI Component, Apache-2.0
-    * Android Emoji2 Compat (/androidx/emoji2): UI Component, Apache-2.0
-    * AndroidX Fragment (/androidx/fragment): UI Component, Apache-2.0
-    * Interpolator (/androidx/interpolator): UI Component, Apache-2.0
-    * androidx.legacy (/androidx/legacy): Utility, Apache-2.0
-    * Lifecycle (/androidx/lifecycle): Utility, Apache-2.0
-    * Loader (/androidx/loader): Utility, Apache-2.0
-    * AndroidX Local Broadcast Manager (/androidx/localbroadcastmanager): Utility, Apache-2.0
-    * Print (/androidx/print): Utility, Apache-2.0
-    * ResourceInspection (/androidx/resourceinspection): Development Aid, Apache-2.0
-    * Recyclerview (/androidx/recyclerview): Utility, Apache-2.0
-    * Android Activity Saved State (/androidx/savedstate): Utility, Apache-2.0
-    * Startup (/androidx/startup): Utility, Apache-2.0
-    * Swiperefreshlayout (/androidx/swiperefreshlayout): UI Component, Apache-2.0
-    * Tracing (/androidx/tracing): Utility, Apache-2.0
-    * Transition (/androidx/transition): UI Component, Apache-2.0
-    * Vectordrawable (/androidx/vectordrawable): UI Component, Apache-2.0
-    * Android Jetpack VersionedParcelable (/androidx/versionedparcelable): Utility, Apache-2.0
-    * Viewpager (/androidx/viewpager): UI Component, Apache-2.0
-    * AndroidX Widget ViewPager2 (/androidx/viewpager2): UI Component, Apache-2.0
-    * Webkit (/androidx/webkit): Utility, Apache-2.0
-    * Bolts Framework (/bolts): Development Framework, MIT
-    * Lottie for React Native (/com/airbnb/android/react/lottie): Utility, Apache-2.0
-    * Lottie for Android (/com/airbnb/lottie): UI Component, Apache-2.0
-    * Play Install Referrer Library (/com/android/installreferrer): Utility, Proprietary; NonFreeComp,NonFreeNet,Tracking
-    * Crashlytics (/com/crashlytics): Mobile Analytics, Proprietary; NonFreeComp,Tracking
-    * Fresco (/com/facebook/fresco): Utility, MIT
-    * Hermes JS Engine (/com/facebook/hermes): Utility, MIT
-    * Infer (/com/facebook/infer): Utility, MIT
-    * React Native (/com/facebook/react): Development Framework, MIT
-    * SoLoader (/com/facebook/soloader): Utility, Apache-2.0
-    * Google Ads (/com/google/ads): Advertisement, Proprietary; Ads,NonFreeComp
-    * Firebase Data Transport (/com/google/android/datatransport): Utility, Apache-2.0; NonFreeNet
-    * Android Market (/com/google/android/finsky): App Market, LicenseUnknown; NonFreeNet
-    * Google Mobile Services (/com/google/android/gms): Development Framework, Proprietary; NonFreeComp
-    * Google Material Design (/com/google/android/material): Utility, Apache-2.0
-    * Google Core Libraries for Java 6+ (/com/google/common): Utility, Apache-2.0
-    * Error Prone (/com/google/errorprone): Utility, Apache-2.0
-    * Firebase (/com/google/firebase): Utility, LicenseUnknown; NonFreeNet,NonFreeComp
-    * Firebase Analytics (/com/google/firebase/analytics): Mobile Analytics, Proprietary; NonFreeComp,Tracking
-    * Firebase Installations (/com/google/firebase/installations): Development Aid, Apache-2.0; NonFreeNet
-    * React Native SVG (/com/horcrux/rnsvg): Utility, MIT
-    * react-native-svg (/com/horcrux/svg): Utility, MIT
-    * react-native-device-info (/com/learnium/RNDeviceInfo): Utility, MIT
-    * InAppBrowser for React Native (/com/proyecto26/inappbrowser): Utility, MIT
-    * React Native Async Storage (/com/reactnativecommunity/asyncstorage): Utility, MIT
-    * @react-native-community/clipboard (/com/reactnativecommunity/clipboard): Utility, MIT
-    * React Native WebView (/com/reactnativecommunity/webview): Utility, MIT
-    * OkHttp (/com/squareup/okhttp): Utility, Apache-2.0
-    * React Native Gesture Handler (/com/swmansion/gesturehandler): Utility, MIT
-    * React Native Reanimated (/com/swmansion/reanimated): Utility, MIT
-    * react-native-screens (/com/swmansion/rnscreens): Utility, MIT
-    * react-native-safe-area-context (/com/th3rdwave/safeareacontext): Utility, MIT
-    * JavaX Annotation API (/javax/annotation): Utility, BSD-3-Clause
-    * JavaX Dependency Injection (/javax/inject): Utility, Apache-2.0
-    * Kotlin (/kotlin): Utility, Apache-2.0
-    * kotlinx.coroutines (/kotlinx/coroutines): Utility, Apache-2.0
-    * OkHttp okio Framework (/okio): Utility, Apache-2.0
-    * Webkit Boundary Interfaces (/org/chromium/support_lib_boundary): Utility, BSD-3-Clause
-    * react-native-splash-screen (/org/devio/rn/splashscreen): UI Component, MIT
-    * EventBus (/org/greenrobot/eventbus): Utility, Apache-2.0
-    * IntelliJ IDEA (/org/intellij): Utility, Apache-2.0
-    
-    Offending libs:
-    ---------------
-    * Play Install Referrer Library (/com/android/installreferrer): NonFreeComp,NonFreeNet,Tracking
-    * Crashlytics (/com/crashlytics): NonFreeComp,Tracking
-    * Google Ads (/com/google/ads): Ads,NonFreeComp
-    * Firebase Data Transport (/com/google/android/datatransport): NonFreeNet
-    * Android Market (/com/google/android/finsky): NonFreeNet
-    * Google Mobile Services (/com/google/android/gms): NonFreeComp
-    * Firebase (/com/google/firebase): NonFreeNet,NonFreeComp
-    * Firebase Analytics (/com/google/firebase/analytics): NonFreeComp,Tracking
-    * Firebase Installations (/com/google/firebase/installations): NonFreeNet
-    
-    9 offenders.
-</details>
+The NetBird Android client allows connections from mobile devices running Android to private resources in the NetBird network.
 
-<details>
-    <summary>After</summary>
+## Screenshots
 
-    No libsmali.jsonl entry for /com/shaded/fasterxml/jackson, this library will be ignored.
-    
-    Libraries detected:
-    -------------------
-    * Android Support v4 (/android/support/v4): Development Framework, Apache-2.0
-    * AndroidX Activity (/androidx/activity): Utility, Apache-2.0
-    * Android Jetpack Annotations (/androidx/annotation): Utility, Apache-2.0
-    * Arch (/androidx/arch): Utility, Apache-2.0
-    * AppCompat (/androidx/appcompat): Utility, Apache-2.0
-    * Autofill (/androidx/autofill): Utility, Apache-2.0
-    * Browser (/androidx/browser): Utility, Apache-2.0
-    * Cardview (/androidx/cardview): UI Component, Apache-2.0
-    * Android Support Library collections (/androidx/collection): Utility, Apache-2.0
-    * Concurrent (/androidx/concurrent): Utility, Apache-2.0
-    * Coordinatorlayout (/androidx/coordinatorlayout): UI Component, Apache-2.0
-    * Androidx Core (/androidx/core): Utility, Apache-2.0
-    * AndroidX Cursor Adapter (/androidx/cursoradapter): Utility, Apache-2.0
-    * Android Support Library Custom View (/androidx/customview): UI Component, Apache-2.0
-    * Drawerlayout (/androidx/drawerlayout): UI Component, Apache-2.0
-    * Android Emoji2 Compat (/androidx/emoji2): UI Component, Apache-2.0
-    * AndroidX Fragment (/androidx/fragment): UI Component, Apache-2.0
-    * Interpolator (/androidx/interpolator): UI Component, Apache-2.0
-    * Lifecycle (/androidx/lifecycle): Utility, Apache-2.0
-    * Loader (/androidx/loader): Utility, Apache-2.0
-    * ResourceInspection (/androidx/resourceinspection): Development Aid, Apache-2.0
-    * Recyclerview (/androidx/recyclerview): Utility, Apache-2.0
-    * Android Activity Saved State (/androidx/savedstate): Utility, Apache-2.0
-    * Sqlite (/androidx/sqlite): Utility, Apache-2.0
-    * Startup (/androidx/startup): Utility, Apache-2.0
-    * Swiperefreshlayout (/androidx/swiperefreshlayout): UI Component, Apache-2.0
-    * Tracing (/androidx/tracing): Utility, Apache-2.0
-    * Transition (/androidx/transition): UI Component, Apache-2.0
-    * Vectordrawable (/androidx/vectordrawable): UI Component, Apache-2.0
-    * Android Jetpack VersionedParcelable (/androidx/versionedparcelable): Utility, Apache-2.0
-    * Viewpager (/androidx/viewpager): UI Component, Apache-2.0
-    * AndroidX Widget ViewPager2 (/androidx/viewpager2): UI Component, Apache-2.0
-    * Webkit (/androidx/webkit): Utility, Apache-2.0
-    * Bolts Framework (/bolts): Development Framework, MIT
-    * Lottie for React Native (/com/airbnb/android/react/lottie): Utility, Apache-2.0
-    * Lottie for Android (/com/airbnb/lottie): UI Component, Apache-2.0
-    * Flipper (/com/facebook/flipper/android): Development Aid, MIT
-    * Fresco (/com/facebook/fresco): Utility, MIT
-    * Hermes JS Engine (/com/facebook/hermes): Utility, MIT
-    * Infer (/com/facebook/infer): Utility, MIT
-    * React Native (/com/facebook/react): Development Framework, MIT
-    * SoLoader (/com/facebook/soloader): Utility, Apache-2.0
-    * Google Material Design (/com/google/android/material): Utility, Apache-2.0
-    * Google Core Libraries for Java 6+ (/com/google/common): Utility, Apache-2.0
-    * React Native SVG (/com/horcrux/rnsvg): Utility, MIT
-    * react-native-svg (/com/horcrux/svg): Utility, MIT
-    * InAppBrowser for React Native (/com/proyecto26/inappbrowser): Utility, MIT
-    * React Native Async Storage (/com/reactnativecommunity/asyncstorage): Utility, MIT
-    * @react-native-community/clipboard (/com/reactnativecommunity/clipboard): Utility, MIT
-    * React Native WebView (/com/reactnativecommunity/webview): Utility, MIT
-    * OkHttp (/com/squareup/okhttp): Utility, Apache-2.0
-    * React Native Gesture Handler (/com/swmansion/gesturehandler): Utility, MIT
-    * React Native Reanimated (/com/swmansion/reanimated): Utility, MIT
-    * react-native-screens (/com/swmansion/rnscreens): Utility, MIT
-    * react-native-safe-area-context (/com/th3rdwave/safeareacontext): Utility, MIT
-    * JavaX Annotation API (/javax/annotation): Utility, BSD-3-Clause
-    * JavaX Dependency Injection (/javax/inject): Utility, Apache-2.0
-    * Kotlin (/kotlin): Utility, Apache-2.0
-    * kotlinx.coroutines (/kotlinx/coroutines): Utility, Apache-2.0
-    * OkHttp okio Framework (/okio): Utility, Apache-2.0
-    * Webkit Boundary Interfaces (/org/chromium/support_lib_boundary): Utility, BSD-3-Clause
-    * react-native-splash-screen (/org/devio/rn/splashscreen): UI Component, MIT
-    * EventBus (/org/greenrobot/eventbus): Utility, Apache-2.0
-    * IntelliJ IDEA (/org/intellij): Utility, Apache-2.0
-    * Java WebSockets (/org/java_websocket): Utility, MIT
-    * Simple Logging Facade for Java (/org/slf4j): Utility, MIT
-    
-    No offending libs found.
-</details>
+<p align="center">
+  <img src="https://github.com/netbirdio/android-client/assets/7756831/31fea824-9604-4e6a-a6ed-78cb526b6066" alt="menu" width="250" style="margin-right: 10px;"/>
+  <img src="https://github.com/netbirdio/android-client/assets/7756831/97b3bf1b-6e70-4f25-b5ab-e62b3337f10d" alt="peer-overview" width="250" style="margin-right: 10px;"/>
+  <img src="https://github.com/netbirdio/android-client/assets/7756831/d3ce7c74-aa1e-4be0-ba0c-4761432171e4" alt="mainscreen" width="250"/>
+</p>
 
-Scan made using tools provided by [IzzyOnDroid](https://gitlab.com/IzzyOnDroid/repo/) - thank you! <3
+## Install
+You can download and install the app from the Google Play Store:
+
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="80">](https://play.google.com/store/apps/details?id=io.netbird.client)
+
 
 ## Building from source
 ### Requirements
 We need the following software:
 * Java 1.11. Usually comes with Android Studio
-* Android Studio initialized with JDK and emulator (not covered here, is a req from android-client and react-native-app projects)
-* Gradle (https://gradle.org/install/)
+* android studio initialized with jdk and emulator (not covered here, is a req from android-client project)
+* gradle (https://gradle.org/install/)
 * npm 1.18, yarn and nvm:
 ```shell
 # download and install nvm https://github.com/nvm-sh/nvm
@@ -206,8 +63,8 @@ npm install -g yarn
 npm install -g npx
 ```
 
-### Run locally
-1. Close all repositories:
+### run locally
+1. close all repositories:
 > assuming you use a path like ~/projects locally
 ```shell
 mkdir ~/projects
@@ -215,10 +72,10 @@ cd projects
 # clone netbird repo
 git clone git@github.com:netbirdio/netbird.git
 # clone react native app repo
-git clone git@github.com:netbirdio/react-native-app.git
+git clone git@github.com:netbirdio/android-client.git
 ```
 2. Checkout the repositories to the branches you want to test. If you want the latest, check the status information on your IDE or on https://github.com and verify the branch list and commit history.
-3. Export JDK and Android home vars, on macOS they are: (please contribute with Linux equivalent)
+3. export JDK and Android home vars, on macOS they are: (please contribute with Linux equivalent)
 ```shell
 # replace <USERNAME> with your name
 export ANDROID_HOME=/Users/<USERNAME>/Library/Android/sdk
@@ -226,12 +83,12 @@ export JAVA_HOME=/Applications/Android Studio.app/Contents/jbr/Contents/Home
 ```
 4. Install NDK and CMake
 ```shell
-cd ~/projects/react-native-app
+cd ~/projects/android-client
 $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "ndk;23.1.7779620"
 ```
 5. Build the gomobile lib and the Android client lib:
 ````shell
-cd ~/projects/react-native-app
+cd ~/projects/android-client
 bash -x build-android-lib.sh ~/projects/netbird
 ````
 6. Install the react native app dependencies
@@ -243,17 +100,17 @@ yarn add file:./react/netbird-lib
 ```shell
 yarn start
 ```
-8. Select `a` to install it on your android phone or emulator
+8. select `a` to install it on your Android phone or emulator
 
 ### Generate debug bundle
 Follow the steps to run locally until the step 5 then run the following steps:
 1. run npx from react native app repo
 ```shell
-cd ~/projects/react-native-app
+cd ~/projects/android-client
 npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
 ```
 2. run gradlew
 ```shell
-cd ~/projects/react-native-app/android
+cd ~/projects/android-client/android
 ./gradlew bundleDebug
 ```
